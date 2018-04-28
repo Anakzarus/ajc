@@ -1,0 +1,53 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+head, title, link{
+	display: block;
+	font-size: 0;
+}
+head{
+	z-index: 99999999999999;
+}
+link:not([rel]),
+link[rel=""],
+link[rel="stylesheet"]:not([type]),
+link[rel="stylesheet"][type=""],
+link[rel="stylesheet"][type="text/css"]:not([href]){
+	background: #333;
+	color: white;
+	font-size: 30px;
+	font-family: monospace;
+	padding: 3px 5px;
+}
+link:not([rel])::before,
+link[rel=""]::before,
+link[rel="stylesheet"]:not([type])::before,
+link[rel="stylesheet"][type=""]::before,
+link[rel="stylesheet"][type="text/css"]:not([href])::before{
+	content: "ERROR";
+	display: inline-block;
+	padding: 3px 5px;
+	border-radius: 3px;
+	background: darkred;
+	color: currentColor;
+}
+
+link:not([rel])::after{
+	content: '<link [WHERE THE REL IS THE HELL???]>';
+}
+link[rel=""]::after{
+	content: '<link rel="[NOTHING HERE!!!]">';
+}
+link[rel="stylesheet"]:not([type])::after{
+	content: '<link [Did you even ask it its preference TYPE?]';
+}
+link[rel="stylesheet"][type=""]::after{
+	content: '<link type="[We both know what type it is, but I am just an ::after, I can not inject html...=/ ]"';
+}
+link[rel="stylesheet"][type="text/css"]:not([href])::after{
+	content: '<link [Why someone put a link to note say the path?]>';
+}
